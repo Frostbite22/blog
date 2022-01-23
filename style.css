@@ -16,3 +16,20 @@ p
     margin-left: auto;
 }
 
+pre, code {
+  font-family: monospace, monospace;
+}
+
+code 
+{
+  background-color: #bde4dd;
+}
+pre {
+  overflow: auto;
+}
+pre > code {
+  display: block;
+  /*padding: 1rem;*/
+  word-wrap: normal;
+}
+

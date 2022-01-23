@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>
+            Do not Bend
+        </title>
+        <link rel="stylesheet" href="../style.css">
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+         <script async src="https://www.googletagmanager.com/gtag/js?id=G-G07Q2S34LD"></script>
+         <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+ 
+         gtag('config', 'G-G07Q2S34LD');
+         </script>
+
+    </head>
+    
+    <body style="background-color: #fdfdfd;" class="markdown-body container-fluid">
+        <h1 style="font-size: 26px;font-weight: 300;color: #424242;"><a href= "../index.html"  style="text-decoration: none; color :inherit;">Do not bend - Mohamed fares Landoulsi's blog</a></h1>
+        <hr>
+        <div>
+            <p style="font-size: 30px;font-weight: 300;color: #424242;">Automate C++ Build process with CMake for your big projects</p>
+        
+            <p style="color: #828282;">23 January 2022</p>
+            
+            <p style="font-size: 18px; color: #333333;">
+                If you’re learning a compiled language such as C++ you are probably wondering how you would handle
+                 a very large project by compiling multiple files at once through the command line.  
+            </p>
+            <p style="font-size: 18px; color: #333333;">
+                Here is a very basic example : the superclass Point and it’s subclass MovablePoint : 
+            </p>
+            <figure>
+                <pre>
+                  <code contenteditable spellcheck="false">$ g++ Point.cpp MovablePoint.cpp mainMovable.cpp -o MovablePoint
+                  </code>
+                </pre>   
+            </figure>   
+
+            <p style="font-size: 18px; color: #333333;"> 
+                Imagine you are making a video game and you need to compile +100 classes,
+                 it wouldn’t be so fun to write all these classes manually on the command line to compile it. 
+                And here’s where CMake shines. This software would automate the compilation and the building process.
+                 All you need to do to add CMakeLists.txt to your existing project directory. 
+           </p>
+
+        <figure>
+            <figcaption>CMakeLists.txt</figcaption>
+            <pre>
+              <code contenteditable spellcheck="false">cmake_minimum_required(VERSION 3.0)
+
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+                
+project(point)
+                
+add_executable
+(
+    MovablePoint
+    Point.cpp
+    MovablePoint.cpp
+    mainMovable.cpp
+)
+              </code>
+            </pre>   
+        </figure> 
+
+           <p style="font-size: 18px; color: #333333;">
+            MovablePoint : name of the final binary <br>
+            Type on the command line 
+           </p>
+           <figure>
+            <pre>
+              <code contenteditable spellcheck="false">$ cmake . 
+              </code>
+            </pre>   
+        </figure> 
+
+        <p style="font-size: 18px; color: #333333;">
+            It would generate the necessary makefiles for the system in the current directory, and then we can type 
+        </p>
+        <figure>
+            <pre>
+              <code contenteditable spellcheck="false">$ make 
+              </code>
+            </pre>   
+        </figure> 
+           <img src="cmake.jpg" style="max-width: 760px;">
+
+           <p style="font-size: 18px; color: #333333;">
+            This command would compile all the .cpp files.<br>
+            Finally, to execute the final binary, type 
+            </p>
+           <figure>
+            <pre>
+              <code contenteditable spellcheck="false">$ ./MovablePoint
+              </code>
+            </pre>   
+        </figure> 
+
+        </div>
+
+        <footer>
+            <hr>
+            <div>
+                <h1 style="font-size: 26px;font-weight: 300;color: #424242;">Do not bend</h1>
+        
+                <p>This is where I share my thoughts and my honest opinion about variety of topics.</p>
+                <p>landoulsiferes@outlook.com</p>
+                <p><a href="https://github.com/Frostbite22" style="color: #2a7ae2">Github profile</a></p>
+                <p><a href="https://www.linkedin.com/in/mohamed-fares-andaloussi" style="color: #2a7ae2">LinkedIn profile</a></p>
+                <p><a href="https://open.spotify.com/show/6z1WycV8neHxHeXCXv2kOa" style="color: #2a7ae2">Podcast</a></p>
+            </div>
+        </footer>
+    </body>
+
+    
+</html>
